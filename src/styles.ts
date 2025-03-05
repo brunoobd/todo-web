@@ -1,4 +1,4 @@
-import styled, { createGlobalStyle } from "styled-components";
+import styled, { createGlobalStyle, css } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
   * {
@@ -16,7 +16,11 @@ export const GlobalStyle = createGlobalStyle`
   input,
   button {
     font-family: "Inter", sans-serif;
-    color: ${({ theme }) => theme.COLORS.GRAY_100}
+
+    ${({ theme }) => css`
+      color: ${theme.COLORS.GRAY_100};
+      font-size: ${theme.FONT_SIZE.MEDIUM}rem;
+    `};
   }
 `;
 
