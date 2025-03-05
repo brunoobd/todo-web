@@ -3,6 +3,6 @@ import logo from "@assets/logo.svg";
 
 export const Header = () => (
   <Container>
-    <img src={logo} />
+    <img src={logo} alt={"Todo logotipo"} />
   </Container>
 );

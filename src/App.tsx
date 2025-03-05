@@ -1,8 +1,12 @@
+import theme from "@theme/index";
+
 import { ThemeProvider } from "styled-components";
 
-import theme from "@theme/index";
-import { GlobalStyle } from "./styles/globalStyles";
+import { Container, Form, GlobalStyle } from "./styles.ts";
+
 import { Header } from "@components/Header";
+import { Input } from "@components/Input";
+import { Button } from "@components/Button";
 
 function App() {
   return (
@@ -11,7 +15,13 @@ function App() {
 
       <Header />
 
-      
+      <Container>
+        <Form>
+          <Input placeholder={"Adicione uma nova tarefa"} />
+
+          <Button />
+        </Form>
+      </Container>
     </ThemeProvider>
   );
 }
