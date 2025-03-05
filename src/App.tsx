@@ -20,6 +20,7 @@ import {
   Header,
   Input,
   TaskCounter,
+  TaskEmpty,
   TaskItem,
 } from "@components/index.ts";
 
@@ -56,6 +57,8 @@ const App = () => {
       ...prevState,
       { id: newTaskId, title: newTask, completed: false },
     ]);
+
+    setNewTask("");
   };
 
   const handleCompleteTask = (taskId: number) => {
@@ -111,18 +114,22 @@ const App = () => {
             />
           </TaskHeader>
 
-          <TaskList>
-            {tasks.map(({ id, title, completed }) => (
-              <TaskItem
-                key={id}
-                id={id}
-                title={title}
-                completed={completed}
-                onCompleteTask={handleCompleteTask}
-                onDeleteTask={handleDeleteTask}
-              />
-            ))}
-          </TaskList>
+          {!!tasks.length ? (
+            <TaskList>
+              {tasks.map(({ id, title, completed }) => (
+                <TaskItem
+                  key={id}
+                  id={id}
+                  title={title}
+                  completed={completed}
+                  onCompleteTask={handleCompleteTask}
+                  onDeleteTask={handleDeleteTask}
+                />
+              ))}
+            </TaskList>
+          ) : (
+            <TaskEmpty></TaskEmpty>
+          )}
         </TaskContainer>
       </Container>
     </ThemeProvider>

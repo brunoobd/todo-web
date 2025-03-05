@@ -32,3 +32,9 @@ export const Container = styled.button.attrs(() => ({
     }
   `};
 `;
+
+export const Title = styled.p`
+  @media (max-width: 375px) {
+    display: none;
+  }
+`;

@@ -15,7 +15,7 @@ export const TaskCounter = ({ title, createdTasks, completedTasks }: Props) => {
 
       <Counter>
         <CounterText>
-          {hasCompletedTasks
+          {hasCompletedTasks && createdTasks !== 0
             ? `${completedTasks} de ${createdTasks}`
             : createdTasks}
         </CounterText>
