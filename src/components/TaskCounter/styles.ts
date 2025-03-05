@@ -3,7 +3,7 @@ import styled, { css } from "styled-components";
 export type TitleVariant = "DEFAULT" | "PURPLE";
 
 type TitleType = {
-  variant: TitleVariant;
+  $variant: TitleVariant;
 };
 
 export const Container = styled.div`
@@ -13,8 +13,8 @@ export const Container = styled.div`
 `;
 
 export const Title = styled.p<TitleType>`
-  color: ${({ theme, variant }) =>
-    variant === "DEFAULT" ? theme.COLORS.BLUE : theme.COLORS.PURPLE};
+  color: ${({ theme, $variant }) =>
+    $variant === "DEFAULT" ? theme.COLORS.BLUE : theme.COLORS.PURPLE};
   font-weight: bold;
 `;
 

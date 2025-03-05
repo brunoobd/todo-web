@@ -42,3 +42,27 @@ export const Form = styled.form`
   justify-content: space-between;
   gap: 0.5rem;
 `;
+
+export const TaskContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+`;
+
+export const TaskHeader = styled.div`
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
+
+export const TaskList = styled.div`
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+`;

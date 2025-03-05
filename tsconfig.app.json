@@ -30,6 +30,9 @@
       "@components/*": [
         "./src/components/*"
       ],
+      "@models/*": [
+        "./src/models/*"
+      ],
       "@theme/*": [
         "./src/theme/*"
       ],

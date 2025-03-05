@@ -8,7 +8,7 @@ type Props = {
 
 export const TaskCounter = ({ title, count, variant = "DEFAULT" }: Props) => (
   <Container>
-    <Title variant={variant}>{title}</Title>
+    <Title $variant={variant}>{title}</Title>
 
     <Counter>
       <CounterText>{count}</CounterText>

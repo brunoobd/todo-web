@@ -1,6 +1,8 @@
 import styled, { css } from "styled-components";
 
-export const Container = styled.button`
+export const Container = styled.button.attrs(() => ({
+  type: "submit",
+}))`
   padding: 1rem;
 
   display: flex;
@@ -19,9 +21,14 @@ export const Container = styled.button`
 
     background-color: ${theme.COLORS.BLUE_DARK};
 
-    &:hover {
+    &:not(:disabled):hover {
       background-color: ${theme.COLORS.BLUE};
       cursor: pointer;
+    }
+
+    &:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
     }
   `};
 `;
