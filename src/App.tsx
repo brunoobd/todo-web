@@ -22,24 +22,10 @@ import {
   TaskCounter,
   TaskEmpty,
   TaskItem,
-} from "@components/index.ts";
+} from "@components";
 
 const App = () => {
-  const [tasks, setTasks] = useState<Task[]>([
-    { id: 1, title: "Estudar TypeScript", completed: false },
-    { id: 2, title: "Criar estrutura do projeto", completed: true },
-    {
-      id: 3,
-      title: "Implementar funcionalidade de adicionar tarefas",
-      completed: false,
-    },
-    {
-      id: 4,
-      title: "Estilizar aplicação com styled-components",
-      completed: false,
-    },
-    { id: 5, title: "Testar funcionalidades", completed: true },
-  ]);
+  const [tasks, setTasks] = useState<Task[]>([]);
   const [newTask, setNewTask] = useState("");
   const tasksCompleted = tasks.filter((task) => task.completed);
 
