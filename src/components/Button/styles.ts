@@ -5,7 +5,7 @@ export const Container = styled.button`
 
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  gap: 0.5rem;
 
   border: none;
   border-radius: 0.5rem;
@@ -15,6 +15,8 @@ export const Container = styled.button`
   transition-duration: 0.4s;
 
   ${({ theme }) => css`
+    font-weight: bold;
+
     background-color: ${theme.COLORS.BLUE_DARK};
 
     &:hover {

@@ -28,6 +28,8 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   gap: 4rem;
+
+  transform: translateY(-1.6875rem);
 `;
 
 export const Form = styled.form`
