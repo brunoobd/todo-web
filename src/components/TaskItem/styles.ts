@@ -1,5 +1,7 @@
 import styled, { css } from "styled-components";
+
 import { Check as CheckIcon } from "@phosphor-icons/react";
+import { Trash as TrashIcon } from "@phosphor-icons/react";
 
 type TaskItemVariant = {
   $completed: boolean;
@@ -17,7 +19,8 @@ export const Container = styled.div<TaskItemVariant>`
   border-radius: 0.5rem;
 
   ${({ theme, $completed }) => css`
-    border: 0.0625rem solid ${$completed ? "transparent" : theme.COLORS.GRAY_400};
+    border: 0.0625rem solid
+      ${$completed ? "transparent" : theme.COLORS.GRAY_400};
 
     background-color: ${theme.COLORS.GRAY_500};
   `}
@@ -32,7 +35,7 @@ export const Title = styled.p<TaskItemVariant>`
   `}
 `;
 
-export const RadioButton = styled.div<TaskItemVariant>`
+export const RadioButton = styled.button<TaskItemVariant>`
   min-width: 1.5rem;
   min-height: 1.5rem;
 
@@ -49,7 +52,9 @@ export const RadioButton = styled.div<TaskItemVariant>`
 
     &:hover {
       cursor: pointer;
-      border-color: ${$completed ? theme.COLORS.PURPLE : theme.COLORS.BLUE_DARK};
+      border-color: ${$completed
+        ? theme.COLORS.PURPLE
+        : theme.COLORS.BLUE_DARK};
       background-color: ${$completed ? theme.COLORS.PURPLE : "transparent"};
     }
   `}
@@ -64,4 +69,27 @@ export const Check = styled(CheckIcon).attrs(({ theme }) => ({
   height: 100%;
 
   border-radius: 100%;
+`;
+
+export const Button = styled.button`
+  min-width: 2rem;
+  min-height: 2rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+  border-radius: 0.25rem;
+  outline: none;
+
+  background: transparent;
+
+  &:hover {
+    background-color: ${({ theme }) => theme.COLORS.GRAY_400};
+    color: ${({ theme }) => theme.COLORS.DANGER};
+    cursor: pointer;
+  }
+
+  transition-duration: 0.2s;
 `;

@@ -15,8 +15,13 @@ import {
   TaskList,
 } from "./styles.ts";
 
-import { Button, Header, Input, TaskCounter } from "@components/index.ts";
-import { TaskItem } from "@components/TaskItem/index.tsx";
+import {
+  Button,
+  Header,
+  Input,
+  TaskCounter,
+  TaskItem,
+} from "@components/index.ts";
 
 const App = () => {
   const [tasks, setTasks] = useState<Task[]>([
@@ -44,17 +49,13 @@ const App = () => {
   const handleAddNewTask = (event: FormEvent) => {
     event.preventDefault();
 
-    if (newTask.trim().length) {
-      const taskIds = tasks.map((task) => task.id);
-      const newTaskId = taskIds.length ? Math.max(...taskIds) + 1 : 0;
+    const taskIds = tasks.map((task) => task.id);
+    const newTaskId = taskIds.length ? Math.max(...taskIds) + 1 : 0;
 
-      setTasks((prevState) => [
-        ...prevState,
-        { id: newTaskId, title: newTask, completed: false },
-      ]);
-    } else {
-      window.alert("PARA DE BURLAR SEU LA JOY!!!!!!!!!!");
-    }
+    setTasks((prevState) => [
+      ...prevState,
+      { id: newTaskId, title: newTask, completed: false },
+    ]);
   };
 
   const handleCompleteTask = (taskId: number) => {
@@ -70,6 +71,10 @@ const App = () => {
         return task;
       })
     );
+  };
+
+  const handleDeleteTask = (taskId: number) => {
+    setTasks((prevState) => prevState.filter((task) => task.id !== taskId));
   };
 
   return (
@@ -95,11 +100,14 @@ const App = () => {
 
         <TaskContainer>
           <TaskHeader>
-            <TaskCounter title={"Tarefas criadas"} count={tasks.length} />
+            <TaskCounter
+              title={"Tarefas criadas"}
+              createdTasks={tasks.length}
+            />
             <TaskCounter
               title={"Concluídas"}
-              count={tasksCompleted.length}
-              variant={"PURPLE"}
+              createdTasks={tasks.length}
+              completedTasks={tasksCompleted.length}
             />
           </TaskHeader>
 
@@ -111,6 +119,7 @@ const App = () => {
                 title={title}
                 completed={completed}
                 onCompleteTask={handleCompleteTask}
+                onDeleteTask={handleDeleteTask}
               />
             ))}
           </TaskList>

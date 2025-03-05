@@ -1,17 +1,25 @@
-import { Container, Counter, CounterText, Title, TitleVariant } from "./styles";
+import { Container, Counter, CounterText, Title } from "./styles";
 
 type Props = {
   title: string;
-  count: number;
-  variant?: TitleVariant;
+  createdTasks: number;
+  completedTasks?: number;
 };
 
-export const TaskCounter = ({ title, count, variant = "DEFAULT" }: Props) => (
-  <Container>
-    <Title $variant={variant}>{title}</Title>
+export const TaskCounter = ({ title, createdTasks, completedTasks }: Props) => {
+  const hasCompletedTasks = completedTasks != undefined;
 
-    <Counter>
-      <CounterText>{count}</CounterText>
-    </Counter>
-  </Container>
-);
+  return (
+    <Container>
+      <Title $variant={hasCompletedTasks ? "PURPLE" : "DEFAULT"}>{title}</Title>
+
+      <Counter>
+        <CounterText>
+          {hasCompletedTasks
+            ? `${completedTasks} de ${createdTasks}`
+            : createdTasks}
+        </CounterText>
+      </Counter>
+    </Container>
+  );
+};
